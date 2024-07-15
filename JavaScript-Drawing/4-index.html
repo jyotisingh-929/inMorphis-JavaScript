@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Draw Right-Angled Triangle</title>
+</head>
+
+<body>
+    <h2>Right-Angled Triangle</h2>
+    <canvas id="myCanvas" width="150" height="150" style="background-color: lightgray;"></canvas>
+
+</body>
+<script>
+    function drawTriangle() {
+        let canvas = document.getElementById('myCanvas');
+        let ctx = canvas.getContext('2d');
+
+        // Starting point (top-left corner)
+        let startX = 20;
+        let startY = 130;
+
+        // Triangle base and height
+        let base = 100;
+        let height = -100; // Negative to draw upwards
+
+        // Draw triangle
+        ctx.beginPath();
+        ctx.moveTo(startX, startY); // Top-left corner
+        ctx.lineTo(startX + base, startY); // Bottom-left corner
+        ctx.lineTo(startX, startY + height); // Top-right corner
+        ctx.closePath();
+
+        ctx.fillStyle = 'black';
+        ctx.fill(); 
+
+    
+    }
+    drawTriangle();
+</script>
+</html>

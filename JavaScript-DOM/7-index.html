@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change the content of a cell</title>
+    <style type="text/css">
+        body {
+            margin: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="myTable" border="2"></table><br>
+    <form>
+        <input type="button" onclick="createTable()" value="Create the table">
+    </form>
+</body>
+<script>
+    function createTable() {
+        let rows = parseInt(prompt("Enter number of rows:"));
+        let cols = parseInt(prompt("Enter number of columns:"));
+
+        let table = document.getElementById('myTable');
+
+        table.innerHTML = '';
+
+        for (let i = 0; i < rows; i++) {
+            let newRow = table.insertRow();
+
+            for (let j = 0; j < cols; j++) {
+                let newCell = newRow.insertCell();
+                newCell.textContent = 'Row-' + i + ' Column-' + j;
+            }
+        }
+    }
+</script>
+
+</html>

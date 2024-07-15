@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Click Event</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        img {
+            cursor: pointer;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Click on the button to see image</h1><br>
+        <img id="clickableImage" src="">
+        <button type="button" onclick="changeImage()" id="btnID">
+            Show Image
+        </button>
+    </div>
+    
+</body>
+
+<script>
+    function changeImage() {
+        let image = document.getElementById("clickableImage");
+        image.src = "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg"
+        document.getElementById("btnID")
+            .style.display = "none";
+    }
+</script>
+
+</html>

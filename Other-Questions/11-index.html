@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Information</title>
+</head>
+<body>
+    <script>
+        // Browser Information
+        const browserInfo = `Browser Information: ${navigator.userAgent}`;
+        
+        // Screen Resolution
+        const screenResolution = `Screen Resolution: ${screen.width} x ${screen.height}`;
+        
+        // Last Modified Date
+        const lastModifiedDate = `Page Last Modified: ${document.lastModified}`;
+        
+        // Display all information using document.write()
+        document.write(`<p>${browserInfo}</p>`);
+        document.write(`<p>${screenResolution}</p>`);
+        document.write(`<p>${lastModifiedDate}</p>`);
+    </script>
+</body>
+</html>

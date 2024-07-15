@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Draw Circle</title>
+</head>
+
+<body onload="drawCircle();">
+    <h2>Circle Drawing</h2>
+    <canvas id="myCanvas" width="130" height="130" style="background-color: lightgray;"></canvas>
+</body>
+
+<script>
+    function drawCircle() {
+        let canvas = document.getElementById('myCanvas');
+        let ctx = canvas.getContext('2d');
+
+        // Center coordinates and radius of the circle
+        let centerX = canvas.width / 2;
+        let centerY = canvas.height / 2;
+        let radius = 50;
+
+        // Begin path to draw a circle
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+
+        ctx.lineWidth = 2; // Border width
+        ctx.strokeStyle = 'red'; // Border color
+        ctx.stroke(); // Draw the circle border
+    }
+</script>
+
+</html>

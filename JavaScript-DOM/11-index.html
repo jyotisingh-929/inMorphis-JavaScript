@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Image Display</title>
+
+</head>
+
+<body>
+    <h2>Random Image Display</h2>
+    <button onclick="displayRandomImage()">Display Random Image</button>
+    <div id="imageContainer"></div>
+</body>
+<script>
+    function displayRandomImage() {
+        let images = [
+            {
+                url: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+                width: "500",
+                height: "343"
+            },
+            {
+                url: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+                width: "500",
+                height: "343"
+            },
+            {
+                url: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+                width: "500",
+                height: "343"
+            }
+        ];
+
+        let randomIndex = Math.floor(Math.random() * images.length);
+
+        let randomImage = images[randomIndex];
+
+        alert(`Random Image URL: ${randomImage.url}\nWidth: ${randomImage.width}px\nHeight: ${randomImage.height}px`);
+
+        let imgElement = document.createElement('img');
+        imgElement.src = randomImage.url;
+        imgElement.width = randomImage.width;
+        imgElement.height = randomImage.height;
+
+        let container = document.getElementById('imageContainer');
+        container.innerHTML = '';
+        container.appendChild(imgElement);
+    }
+</script>
+
+</html>

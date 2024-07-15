@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        #slideshow {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            overflow: hidden;
+            border: 2px solid #000;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .controls button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slideshow">
+        <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/latin-america/rour2.jpg?crop=0%2C130%2C2500%2C1406&wid=800&hei=450&scl=3.125"
+            class="slide active" alt="Image 1">
+        <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/WOPA080909Fuadi.JPG?crop=0%2C130%2C2496%2C1404&wid=800&hei=450&scl=3.12"
+            class="slide" alt="Image 2">
+        <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/t/h/ThorsWell-Oregon-James-Obi-Obayashi.jpg?crop=140%2C0%2C2176%2C1632&wid=800&hei=600&scl=2.72"
+            class="slide" alt="Image 3">
+        <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/block-island-wind-turbine-left.jpg?crop=41%2C0%2C2666%2C2000&wid=800&hei=600&scl=3.3333333333333335"
+            class="slide" alt="Image 4">
+        <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/w/y/WY_DSCN6589.JPG?crop=0%2C0%2C1536%2C1536&wid=800&hei=800&scl=1.92"
+            class="slide" alt="Image 5">
+        <div class="controls">
+            <button onclick="prevSlide()">Previous</button>
+            <button onclick="nextSlide()">Next</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Optional: Automatically move to the next slide every 3 seconds
+    setInterval(nextSlide, 3000);
+</script>
+
+</html>

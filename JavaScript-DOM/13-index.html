@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Window Width and Height on Resize</title>
+    
+</head>
+
+<body>
+    <h2>Window Width and Height on Resize</h2>
+    <p>This page displays the width and height of the window any time it is resized.</p>
+    <p id="result">Initial Window Size: </p>
+</body>
+
+<script>
+    function getWindowSize() {
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+
+        document.getElementById('result').textContent = 'Window Width: ' + windowWidth + 'px, Window Height: ' + windowHeight + 'px';
+    }
+
+    window.addEventListener('resize', getWindowSize);
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify Paragraphs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p id="para1">This is the first paragraph.</p>
+    <p id="para3">This is the second paragraph.</p>
+</body>
+
+<script>
+    // Function to insert a new paragraph between existing paragraphs
+    function insertNewParagraph() {
+        const newPara = document.createElement('p');
+        newPara.id = 'newPara';
+        newPara.innerText = 'This is the new paragraph inserted between the two existing ones.';
+        document.getElementById('para1').insertAdjacentElement('afterend', newPara);
+
+        // Add event listeners to change style and revert style
+        newPara.addEventListener('mouseover', changeStyle);
+        newPara.addEventListener('mouseout', revertStyle);
+    }
+
+    // Function to change the style of the new paragraph
+    function changeStyle() {
+        this.className = 'highlight';
+    }
+
+    // Function to revert the style of the new paragraph to the original
+    function revertStyle() {
+        this.className = '';
+    }
+
+    // Call the function to insert the new paragraph on page load
+    window.onload = insertNewParagraph;
+</script>
+</html>

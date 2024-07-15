@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Converter and Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Time Converter and Timer</h1>
+    <button onclick="convertToUTC()">Convert Local Time to UTC</button>
+    <div id="result"></div>
+
+    <h2>Timer</h2>
+    <button onclick="startTimer()">Start Timer</button>
+    <div id="timerResult"></div>
+
+</body>
+
+<script>
+    function convertToUTC() {
+        const now = new Date();
+        const utcDate = now.toUTCString();
+        document.getElementById('result').innerText = `Current UTC Date and Time: ${utcDate}`;
+    }
+
+    function startTimer() {
+        const delay = 5000; // Delay in milliseconds (e.g., 5000ms = 5 seconds)
+        setTimeout(() => {
+            const now = new Date();
+            document.getElementById('timerResult').innerText = `Current Date and Time: ${now}`;
+        }, delay);
+    }
+</script>
+
+</html>

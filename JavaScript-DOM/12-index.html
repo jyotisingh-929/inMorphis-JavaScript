@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Bold Words on Mouse Over</title>
+    <style>
+        .highlight {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <p id="targetParagraph">
+        We have just started this section for the users (beginner to intermediate)
+        who want to work with various <strong>JavaScript</strong> problems and write
+        scripts online to test their <strong>JavaScript</strong> skill.
+    </p>
+    <p>
+        <a href="#" onmouseover="highlightBoldWords()">On mouse over here bold words of the following paragraph will be
+            highlighted</a>
+    </p>
+</body>
+<script>
+    function highlightBoldWords() {
+        let paragraph = document.getElementById('targetParagraph');
+
+        let boldWords = paragraph.getElementsByTagName('strong');
+
+        for (let i = 0; i < boldWords.length; i++) {
+            boldWords[i].classList.add('highlight');
+        }
+    }
+</script>
+</html>
